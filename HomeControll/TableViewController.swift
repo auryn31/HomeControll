@@ -1,16 +1,32 @@
 import UIKit
+import SwiftHEXColors
 
 class TableViewController: UITableViewController {
     
     let availableContollers = ["Stehlampe", "Tischlampe", "Klo"]
     let mapToPins = ["Stehlampe":12, "Tischlampe":11, "Klo":10]
     var indicator = UIActivityIndicatorView()
+    var enableView = UIView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityIndicator()        
+        addHiddenFrame()
+        activityIndicator()
     }
 
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        let bounds = UIScreen.main.bounds
+        enableView.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height)
+        
+    }
+    
+    func addHiddenFrame(){
+        enableView.backgroundColor = UIColor(hexString: "000000", alpha: 0.4)
+        self.view.addSubview(enableView)
+        enableView.isHidden = true
+    }
+    
     func activityIndicator() {
         indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
@@ -18,12 +34,9 @@ class TableViewController: UITableViewController {
         self.view.addSubview(indicator)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func enableBackground(value:Bool){
+        enableView.isHidden = !value
     }
-
-    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -41,6 +54,7 @@ class TableViewController: UITableViewController {
             cell.switch?.setOn(false, animated: true)
             cell.indicator = indicator
             cell.pin = mapToPins[availableContollers[indexPath.row]]
+            cell.enableView = enableBackground
             return cell
         } else {
             return tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

@@ -1,12 +1,15 @@
 PODS:
   - Alamofire (4.2.0)
+  - SwiftHEXColors (1.1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.2.0)
+  - SwiftHEXColors
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  SwiftHEXColors: 8f7e364df7929e32cff9f9eeb044bb215167d6be
 
-PODFILE CHECKSUM: 62189fd70bbb0cd329545d7748f47fbe57f68515
+PODFILE CHECKSUM: 2736579e7969be3eebd780ff5f874f8ac0ce5178
 
 COCOAPODS: 1.2.0.beta.3

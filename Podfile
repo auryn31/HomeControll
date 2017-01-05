@@ -2,7 +2,8 @@
 # platform :ios, '9.0'
 
 target 'HomeControll' do
- pod 'Alamofire‘, '~>4.2.0'
+ pod 'Alamofire', '~>4.2.0'
+ pod 'SwiftHEXColors'
  use_frameworks!
 
   # Pods for HomeControll
