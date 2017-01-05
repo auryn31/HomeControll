@@ -3,17 +3,20 @@ import UIKit
 class TableViewController: UITableViewController {
     
     let availableContollers = ["Stehlampe", "Tischlampe", "Klo"]
+    var indicator = UIActivityIndicatorView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        activityIndicator()        
     }
 
+    func activityIndicator() {
+        indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        indicator.center = self.view.center
+        self.view.addSubview(indicator)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -35,6 +38,7 @@ class TableViewController: UITableViewController {
         if let cell = cell {
             cell.label.text = availableContollers[indexPath.row]
             cell.switch?.setOn(false, animated: true)
+            cell.indicator = indicator
             return cell
         } else {
             return tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
