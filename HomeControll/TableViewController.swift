@@ -3,6 +3,7 @@ import UIKit
 class TableViewController: UITableViewController {
     
     let availableContollers = ["Stehlampe", "Tischlampe", "Klo"]
+    let mapToPins = ["Stehlampe":12, "Tischlampe":11, "Klo":10]
     var indicator = UIActivityIndicatorView()
 
     override func viewDidLoad() {
@@ -39,6 +40,7 @@ class TableViewController: UITableViewController {
             cell.label.text = availableContollers[indexPath.row]
             cell.switch?.setOn(false, animated: true)
             cell.indicator = indicator
+            cell.pin = mapToPins[availableContollers[indexPath.row]]
             return cell
         } else {
             return tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
