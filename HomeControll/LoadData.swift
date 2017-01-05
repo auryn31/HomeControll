@@ -11,7 +11,7 @@ class LoadData {
             indicator.stopAnimating()
             if let json = response.result.value {
                 if let stringJSON = json as? Dictionary<String, String>{
-                    print(stringJSON["Test"])
+                    print(stringJSON["Test"] ?? "fail")
                 }
                 
             }
