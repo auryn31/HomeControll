@@ -2,20 +2,21 @@
 # platform :ios, '9.0'
 
 target 'HomeControll' do
-  # Comment this line if you're not using Swift and don't want to use dynamic frameworks
- pod 'Alamofire' 
-use_frameworks!
+ pod 'Alamofire‘, '~>4.2.0'
+ use_frameworks!
 
   # Pods for HomeControll
 
   target 'HomeControllTests' do
     inherit! :search_paths
     # Pods for testing
+    use_frameworks!
   end
 
   target 'HomeControllUITests' do
     inherit! :search_paths
     # Pods for testing
+    use_frameworks!
   end
 
 end
