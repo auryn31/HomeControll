@@ -16,7 +16,7 @@ class TableViewController: UITableViewController {
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        let bounds = UIScreen.main.bounds
+        let bounds = self.view.bounds
         enableView.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height)
         
     }

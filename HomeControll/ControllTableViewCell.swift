@@ -13,8 +13,15 @@ class ControllTableViewCell: UITableViewCell{
         if(self.switch.isOn){
             on = 1
         }
+        
+        func pinSetTo(value:Bool){
+            self.switch.setOn(value, animated: true)
+            enableView!(false)
+        }
+        
         if let pin = pin, let enableView = enableView {
-            load.loadData(indicator: indicator, pin: pin, on: on, loadView: enableView)
+            load.loadData(indicator: indicator, pin: pin, on: on, pinResponse: pinSetTo)
+            enableView(true)
             indicator.startAnimating()
         }
     }

@@ -6,19 +6,32 @@ class LoadData {
     var indicator = UIActivityIndicatorView()
     var enableView:((Bool)->Void)?
     
-    func loadData(indicator: UIActivityIndicatorView, pin:Int, on:Int, loadView: @escaping ((Bool)->Void)){
+    func loadData(indicator: UIActivityIndicatorView, pin:Int, on:Int, pinResponse: @escaping ((Bool)->Void)){
+        
         self.indicator = indicator
-        loadView(true)
-        Alamofire.request("http://192.168.178.67/test1.php?pin=" + String(pin) + "&switchState=" + String(on)).responseJSON(completionHandler: { response in
+        
+        Alamofire.request("http://192.168.178.51/test1.php", method: .get, parameters: ["pin":String(pin), "switchState":String(on)]).responseJSON(completionHandler: { response  in
             indicator.stopAnimating()
-            loadView(false)
-            if let json = response.result.value {
-                if let stringJSON = json as? Dictionary<String, String>{
-                    print(stringJSON["Pin"] ?? "fail")
-                    print(stringJSON["Success"] ?? "fail")
+            switch (response.result){
+            case .success:
+                if let json = response.result.value {
+                    if let stringJSON = json as? Dictionary<String, String>{
+                        print(stringJSON["Pin"] ?? "fail")
+                        print(stringJSON["Success"] ?? "fail")
+                        if(stringJSON["Success"] == "TRUE"){
+                            pinResponse(true)
+                        } else {
+                            pinResponse(false)
+                        }
+                    }
+                    
                 }
-                
+                break
+            case .failure(let error):
+                print(error)
+                break
             }
+            
         })
     }
 }
