@@ -21,6 +21,7 @@ class EditViewController: UIViewController {
                 pin.text = (String) (mapP[avCon[editRow]]!)
             }
         } else {
+            print("no assets")
             navigationController?.popViewController(animated: true)
             dismiss(animated: true, completion: nil)
         }

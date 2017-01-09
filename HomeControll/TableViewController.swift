@@ -14,6 +14,12 @@ class TableViewController: UITableViewController {
         super.viewDidLoad()
         addHiddenFrame()
         activityIndicator()
+        if let avCon = pinAssetsController.getAvailableControllers(), let mapP = pinAssetsController.getMapToPins() {
+            availableContollers = avCon
+            mapToPins = mapP
+        }else {
+            pinAssetsController.saveArray(available: availableContollers, defaultsArr: mapToPins)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
