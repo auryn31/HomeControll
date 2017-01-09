@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		159C18BE135DE54EACEF2421 /* Pods_HomeControllUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9D44D756F53383E65C5E76 /* Pods_HomeControllUITests.framework */; };
 		1A20DBAB1E1EF0AD005551D2 /* SwiftHEXColors.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A20DBAA1E1EF0AD005551D2 /* SwiftHEXColors.framework */; };
+		1A20DBAD1E24027A005551D2 /* PinAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A20DBAC1E24027A005551D2 /* PinAssets.swift */; };
+		1A20DBAF1E2407BB005551D2 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A20DBAE1E2407BB005551D2 /* EditViewController.swift */; };
 		1A45B9E31E1D742700A75CA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A45B9E21E1D742700A75CA6 /* AppDelegate.swift */; };
 		1A45B9E81E1D742800A75CA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A45B9E61E1D742800A75CA6 /* Main.storyboard */; };
 		1A45B9EB1E1D742800A75CA6 /* HomeControll.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1A45B9E91E1D742800A75CA6 /* HomeControll.xcdatamodeld */; };
@@ -45,6 +47,8 @@
 		06CF8C691F01109456C2C20D /* Pods-HomeControllUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeControllUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HomeControllUITests/Pods-HomeControllUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		09C9C82C0E47CC797E02F373 /* Pods_HomeControllTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeControllTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A20DBAA1E1EF0AD005551D2 /* SwiftHEXColors.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftHEXColors.framework; path = "../../../Library/Developer/Xcode/DerivedData/HomeControll-dvmolafztljwzqgsarjkuawzzfdl/Build/Products/Debug-iphonesimulator/SwiftHEXColors/SwiftHEXColors.framework"; sourceTree = "<group>"; };
+		1A20DBAC1E24027A005551D2 /* PinAssets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinAssets.swift; sourceTree = "<group>"; };
+		1A20DBAE1E2407BB005551D2 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		1A406C05B2F53D7675E8BD2E /* Pods-HomeControll.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeControll.release.xcconfig"; path = "Pods/Target Support Files/Pods-HomeControll/Pods-HomeControll.release.xcconfig"; sourceTree = "<group>"; };
 		1A45B9DF1E1D742700A75CA6 /* HomeControll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeControll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A45B9E21E1D742700A75CA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -139,9 +143,11 @@
 			isa = PBXGroup;
 			children = (
 				1A45B9E21E1D742700A75CA6 /* AppDelegate.swift */,
+				1A20DBAC1E24027A005551D2 /* PinAssets.swift */,
+				1A20DBAE1E2407BB005551D2 /* EditViewController.swift */,
 				1A45BA171E1D770F00A75CA6 /* TableViewController.swift */,
-				1A45BA1B1E1EC35C00A75CA6 /* LoadData.swift */,
 				1A45BA151E1D75C500A75CA6 /* ControllTableViewCell.swift */,
+				1A45BA1B1E1EC35C00A75CA6 /* LoadData.swift */,
 				1A45B9E61E1D742800A75CA6 /* Main.storyboard */,
 				1A45B9EC1E1D742800A75CA6 /* Assets.xcassets */,
 				1A45B9EE1E1D742800A75CA6 /* LaunchScreen.storyboard */,
@@ -470,7 +476,9 @@
 				1A45BA161E1D75C500A75CA6 /* ControllTableViewCell.swift in Sources */,
 				1A45BA181E1D770F00A75CA6 /* TableViewController.swift in Sources */,
 				1A45B9EB1E1D742800A75CA6 /* HomeControll.xcdatamodeld in Sources */,
+				1A20DBAD1E24027A005551D2 /* PinAssets.swift in Sources */,
 				1A45BA1C1E1EC35C00A75CA6 /* LoadData.swift in Sources */,
+				1A20DBAF1E2407BB005551D2 /* EditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

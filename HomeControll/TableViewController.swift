@@ -3,15 +3,25 @@ import SwiftHEXColors
 
 class TableViewController: UITableViewController {
     
-    let availableContollers = ["Stehlampe", "Tischlampe", "Klo"]
-    let mapToPins = ["Stehlampe":12, "Tischlampe":11, "Klo":10]
+    var availableContollers = ["Stehlampe", "Tischlampe", "Klo"]
+    var mapToPins = ["Stehlampe":12, "Tischlampe":11, "Klo":10]
     var indicator = UIActivityIndicatorView()
     var enableView = UIView()
+    let pinAssetsController = PinAssets()
+    let timer = Timer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         addHiddenFrame()
         activityIndicator()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if let avCon = pinAssetsController.getAvailableControllers(), let mapP = pinAssetsController.getMapToPins() {
+            availableContollers = avCon
+            mapToPins = mapP
+        }
+        tableView.reloadData()
     }
 
     override func viewWillLayoutSubviews() {
@@ -58,6 +68,24 @@ class TableViewController: UITableViewController {
             return cell
         } else {
             return tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        }
+    }
+    
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let editController = EditViewController()
+//        editController.editRow = indexPath.row
+//        navigationController?.pushViewController(editController, animated: true)
+//    }
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editController" {
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                let editController = segue.destination as! EditViewController
+                editController.editRow = indexPath.row
+
+            }
         }
     }
 

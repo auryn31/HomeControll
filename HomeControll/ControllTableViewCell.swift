@@ -26,5 +26,17 @@ class ControllTableViewCell: UITableViewCell{
         }
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        _ = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.update), userInfo: nil, repeats: true);
+    }
+    
+    func update(){
+        let loadData = LoadData()
+        loadData.getPinsStatus(pin: self.pin!, pinResponse: { isOn in
+            self.switch.isOn = isOn
+        })        
+    }
+    
     
 }
