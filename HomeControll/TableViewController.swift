@@ -20,6 +20,7 @@ class TableViewController: UITableViewController {
         }else {
             pinAssetsController.saveArray(available: availableContollers, defaultsArr: mapToPins)
         }
+        self.tableView.allowsMultipleSelectionDuringEditing = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -77,11 +78,16 @@ class TableViewController: UITableViewController {
         }
     }
     
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let editController = EditViewController()
-//        editController.editRow = indexPath.row
-//        navigationController?.pushViewController(editController, animated: true)
-//    }
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            pinAssetsController.removeKey(pos: indexPath.row)
+            self.tableView.reloadData()
+        }
+    }
     
     
     

@@ -23,4 +23,12 @@ class PinAssets {
     func getMapToPins()->[String:Int]? {
         return defaults.dictionary(forKey: defaultsKeys.mapToPins) as? [String:Int]
     }
+    
+    func removeKey(pos:Int){
+        if var avCon = getAvailableControllers(){
+            avCon.remove(at: pos)
+            defaults.set(avCon, forKey: defaultsKeys.availableContollers)
+            defaults.synchronize()
+        }
+    }
 }

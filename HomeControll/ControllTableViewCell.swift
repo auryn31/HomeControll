@@ -17,6 +17,7 @@ class ControllTableViewCell: UITableViewCell{
         func pinSetTo(value:Bool){
             self.switch.setOn(value, animated: true)
             enableView!(false)
+            indicator.stopAnimating()
         }
         
         if let pin = pin, let enableView = enableView {
