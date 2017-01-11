@@ -85,6 +85,9 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete) {
             pinAssetsController.removeKey(pos: indexPath.row)
+            if let avCont =  pinAssetsController.getAvailableControllers() {
+                availableContollers = avCont
+            }
             self.tableView.reloadData()
         }
     }
