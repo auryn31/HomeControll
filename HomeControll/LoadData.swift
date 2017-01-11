@@ -51,7 +51,7 @@ class LoadData {
     func getPinsStatus(pin:Int, pinResponse: @escaping ((Bool)->Void)){
         
         let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = 1
+        configuration.timeoutIntervalForRequest = 2
         let sessionManager = Alamofire.SessionManager(configuration: configuration)
         let url = "http://192.168.178.51/test1.php?pinStatus="+String(pin)
         sessionManager.request(url, method: .post, parameters: nil)
